@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import "./globals.css";
 
 const title = "Jhoom Curations by Amilohit | Dance for Everyone";
@@ -8,7 +8,6 @@ export const metadata: Metadata = {
   title,
   description,
   metadataBase: new URL("https://jhoom-curations.vikasgudimanchi1.chatgpt.site"),
-  themeColor: "#A63E23",
   icons: { icon: "/favicon.svg", shortcut: "/favicon.svg" },
   openGraph: {
     title,
@@ -18,6 +17,10 @@ export const metadata: Metadata = {
     images: [{ url: "/og.png", width: 1200, height: 630, alt: "Jhoom Curations by Amilohit" }],
   },
   twitter: { card: "summary_large_image", title, description, images: ["/og.png"] },
+};
+
+export const viewport: Viewport = {
+  themeColor: "#A63E23",
 };
 
 const jsonLd = {
