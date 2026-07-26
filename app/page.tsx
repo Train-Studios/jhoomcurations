@@ -6,7 +6,6 @@ import {
   Baby,
   Check,
   ChevronDown,
-  Flower2,
   Heart,
   Mail,
   Menu,
@@ -15,7 +14,6 @@ import {
   Smile,
   Sparkles,
   Star,
-  Users,
   X,
 } from "lucide-react";
 import { useState } from "react";
@@ -30,7 +28,7 @@ import {
 
 const enquiryHref = `mailto:${CONTACT_EMAIL}?subject=Dance%20Session%20Enquiry`;
 
-const sessionIcons = [Heart, Users, PartyPopper, Baby, Sparkles, Flower2];
+const sessionIcons = [Heart, PartyPopper, Baby, Sparkles];
 
 export default function Home() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -74,9 +72,15 @@ export default function Home() {
       <section className="hero" id="home">
         <div className="hero-copy">
           <p className="eyebrow"><Sparkles size={16} /> Dance for every body. Every age. Every mood.</p>
-          <h1>Anybody Can Dance <span>Their Heart Out</span></h1>
+          <h1 className="hero-title">
+            <span className="hero-small">your</span>
+            <span className="hero-main">HAR RASAM</span>
+            <span className="hero-main">HAR RISHTA</span>
+            <span className="hero-main">HAR JHOOM</span>
+            <span className="hero-small hero-closing">HAMAARE SAATH</span>
+          </h1>
           <p className="hero-intro">
-            At Jhoom Curations by AmiLohith, dance is not about being perfectly
+            At Jhoom Curations by Amilohit, dance is not about being perfectly
             flexible or professionally trained. It is about expressing yourself,
             leaving your stress behind, and finding joy in every movement.
           </p>
@@ -137,27 +141,30 @@ export default function Home() {
 
       <section className="about section" id="about">
         <div className="portrait-placeholder">
-          {/* Replace this placeholder with AmiLohith's photograph before publishing. */}
-          <div className="portrait-art" role="img" aria-label="Placeholder for a future photograph of AmiLohith">
+          {/* Replace this placeholder with Amilohit's photograph before publishing. */}
+          <div className="portrait-art" role="img" aria-label="Placeholder for a future photograph of Amilohit">
             <span className="portrait-initial">A</span>
-            <span className="portrait-caption">Photo of AmiLohith<br />coming soon</span>
+            <span className="portrait-caption">Photo of Amilohit<br />coming soon</span>
           </div>
           <span className="portrait-badge">Curated with heart <Heart size={17} fill="currentColor" /></span>
         </div>
         <div className="about-copy">
-          <p className="kicker">The person behind Jhoom</p>
-          <h2>Meet <em>AmiLohith</em></h2>
+          <p className="kicker">The Person Behind Jhoom Curations</p>
+          <h2>Meet <em>Amilohit</em></h2>
           <p>
-            AmiLohith created Jhoom Curations with one simple belief: dance should
-            belong to everyone. Every session is thoughtfully curated around the
-            individual, helping students feel comfortable, expressive, confident,
-            and happy.
+            Amilohit is a dance educator with over seven and a half years in the
+            field, curating choreography for students across age groups and
+            experience levels. His work has taken shape in schools, colleges,
+            communities, studios, and other learning environments—always guided
+            by the belief that dance should feel accessible to everyone.
           </p>
           <p>
-            Whether you arrive after a stressful day or step into a dance class
-            for the first time, the goal is for you to leave smiling.
+            Each experience is shaped around the individual: their pace, comfort,
+            personality, and goals. With a warm focus on confidence, expression,
+            and enjoyment, he helps dancers and non-dancers alike discover
+            movement without pressure or judgement.
           </p>
-          <blockquote>“Expressions are mandatory.<br /><span>The smile will come naturally.</span>”</blockquote>
+          <blockquote>“Expressions come with confidence.<br /><span>The smile will come naturally.</span>”</blockquote>
         </div>
       </section>
 
@@ -175,6 +182,16 @@ export default function Home() {
                 <span className="card-number">0{index + 1}</span>
                 <h3>{session.title}</h3>
                 <p>{session.description}</p>
+                {session.levels && (
+                  <div className="session-levels">
+                    {session.levels.map((level) => (
+                      <div className="session-level" key={level.label}>
+                        <span>{level.label}</span>
+                        <small>{level.detail}</small>
+                      </div>
+                    ))}
+                  </div>
+                )}
                 <a href={enquiryHref} aria-label={`Enquire about ${session.title}`}>
                   Enquire by email <ArrowRight size={17} />
                 </a>
@@ -280,7 +297,7 @@ export default function Home() {
         </div>
         <div><h3>Explore</h3>{NAV_ITEMS.map((item) => <a key={item.href} href={item.href}>{item.label}</a>)}</div>
         <div><h3>Say hello</h3><a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a><a href="#" aria-label="Instagram profile placeholder">Instagram coming soon</a></div>
-        <div className="footer-bottom"><span>© {new Date().getFullYear()} Jhoom Curations by AmiLohith</span><span>Made with rhythm, expression and joy. <Heart size={14} fill="currentColor" /></span></div>
+        <div className="footer-bottom"><span>© {new Date().getFullYear()} Jhoom Curations by Amilohit</span><span>Made with rhythm, expression and joy. <Heart size={14} fill="currentColor" /></span></div>
       </footer>
     </main>
   );

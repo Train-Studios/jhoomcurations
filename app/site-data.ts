@@ -9,20 +9,38 @@ export const NAV_ITEMS = [
 ];
 
 export const SESSIONS = [
-  { title: "Personal Dance Sessions", description: "One-to-one choreography and guidance tailored to your pace, personality, comfort, and goals." },
-  { title: "Group Choreography", description: "Fun, energetic sessions for friends, families, communities, celebrations, and teams." },
-  { title: "Wedding Choreography", description: "Personalised choreography for couples, families, bridesmaids, groomsmen, and wedding performances." },
-  { title: "Kids’ Dance Sessions", description: "Joyful classes that help children build confidence, expression, rhythm, and creativity." },
-  { title: "Adult Beginner Sessions", description: "A comfortable space for adults who always wanted to dance but never knew where to begin." },
-  { title: "Senior-Friendly Sessions", description: "Gentle, joyful, accessible movement designed according to comfort and ability." },
+  {
+    title: "Personal Dance Sessions",
+    description: "One-to-one choreography and personalised dance guidance curated according to your pace, comfort, personality, goals, and preferred dance style.",
+  },
+  {
+    title: "Wedding Choreography",
+    description: "Personalised choreography for couples, families, bridesmaids, groomsmen, and wedding performances—created around celebration, relationships, memories, and confidence.",
+  },
+  {
+    title: "Kids’ Dance Sessions",
+    description: "Joyful, age-appropriate sessions that help children build rhythm, confidence, creativity, musicality, and expression.",
+    levels: [
+      { label: "Beginner", detail: "Playful foundations, rhythm, and confident first steps." },
+      { label: "Advanced", detail: "Stronger technique, musicality, and expressive choreography." },
+    ],
+  },
+  {
+    title: "Adults’ Dance Sessions",
+    description: "Comfortable, expressive sessions curated for adults at every stage of their dance journey.",
+    levels: [
+      { label: "Beginner", detail: "For first-time dancers or anyone returning after a break." },
+      { label: "Advanced", detail: "Challenging choreography, performance quality, musicality, and expression." },
+    ],
+  },
 ];
 
 export const WHY_JHOOM = [
-  "No previous experience required",
+  "Stress-free and judgement-free environment",
   "Flexibility is not a requirement",
   "Sessions customised for each student",
   "Focus on expression and confidence",
-  "Stress-free and judgement-free environment",
+  "No previous experience required",
   "Suitable for multiple ages and languages",
   "Choreography that feels natural and enjoyable",
   "Happiness over perfection",

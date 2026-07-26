@@ -1,4 +1,4 @@
-# Jhoom Curations by AmiLohith
+# Jhoom Curations by Amilohit
 
 A responsive, static dance choreography website built with React, TypeScript, Vite/vinext, Tailwind CSS, and Lucide React icons.
 
@@ -13,7 +13,7 @@ Create a production build with `npm run build`.
 ## Content to update before publishing
 
 - **Contact email:** change the `CONTACT_EMAIL` constant in `app/site-data.ts`.
-- **AmiLohith’s photo:** replace the commented portrait placeholder in `app/page.tsx`.
+- **Amilohit’s photo:** replace the commented portrait placeholder in `app/page.tsx`.
 - **Testimonials:** replace the clearly commented placeholder entries in `app/site-data.ts` with verified customer feedback.
 - **Instagram:** replace the “Instagram coming soon” placeholder link in the footer in `app/page.tsx`.
 

@@ -1,22 +1,29 @@
 import type { Metadata } from "next";
 import "./globals.css";
 
-const title = "Jhoom Curations by AmiLohith | Dance for Everyone";
-const description = "Personalised, joyful and beginner-friendly dance choreography for all ages, abilities and experience levels. Dance your heart out with Jhoom Curations by AmiLohith.";
+const title = "Jhoom Curations by Amilohit | Dance for Everyone";
+const description = "Personalised, joyful and beginner-friendly dance choreography for all ages, abilities and experience levels. Dance your heart out with Jhoom Curations by Amilohit.";
 
 export const metadata: Metadata = {
   title,
   description,
-  themeColor: "#4b123f",
+  metadataBase: new URL("https://jhoom-curations.vikasgudimanchi1.chatgpt.site"),
+  themeColor: "#A63E23",
   icons: { icon: "/favicon.svg", shortcut: "/favicon.svg" },
-  openGraph: { title, description, type: "website", siteName: "Jhoom Curations by AmiLohith" },
-  twitter: { card: "summary", title, description },
+  openGraph: {
+    title,
+    description,
+    type: "website",
+    siteName: "Jhoom Curations by Amilohit",
+    images: [{ url: "/og.png", width: 1200, height: 630, alt: "Jhoom Curations by Amilohit" }],
+  },
+  twitter: { card: "summary_large_image", title, description, images: ["/og.png"] },
 };
 
 const jsonLd = {
   "@context": "https://schema.org",
   "@type": "DanceSchool",
-  name: "Jhoom Curations by AmiLohith",
+  name: "Jhoom Curations by Amilohit",
   description,
   email: "hello@jhoomcurations.com",
   availableLanguage: ["English", "Hindi", "Telugu"],
