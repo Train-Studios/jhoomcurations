@@ -74,10 +74,10 @@ export default function Home() {
           <p className="eyebrow"><Sparkles size={16} /> Dance for every body. Every age. Every mood.</p>
           <h1 className="hero-title">
             <span className="hero-small">your</span>
-            <span className="hero-main">HAR RASAM</span>
-            <span className="hero-main">HAR RISHTA</span>
-            <span className="hero-main">HAR JHOOM</span>
-            <span className="hero-small hero-closing">HAMAARE SAATH</span>
+            <span className="hero-main">Har Rasam</span>
+            <span className="hero-main">Har Rishta</span>
+            <span className="hero-main">Har Jhoom</span>
+            <span className="hero-small hero-closing">hamare saath</span>
           </h1>
           <p className="hero-intro">
             At Jhoom Curations by Amilohit, dance is not about being perfectly
