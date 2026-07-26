@@ -75,7 +75,7 @@ h2 em, h1 span { color: var(--coral); font-weight: inherit; }
 .hero-title { display: flex; flex-direction: column; gap: .05em; }
 .hero-title .hero-main {
   color: var(--plum); display: block; font-size: clamp(3.8rem, 6.6vw, 7.4rem);
-  font-style: normal; font-weight: 700; letter-spacing: -.065em; line-height: .84;
+  font-style: normal; font-weight: 700; letter-spacing: -.065em; line-height: .84; white-space: nowrap;
 }
 .hero-title .hero-small {
   color: var(--coral); display: block; font-family: Georgia, "Times New Roman", serif;
@@ -240,7 +240,7 @@ footer > div:not(.footer-brand):not(.footer-bottom) a { color: #FAF2EC; display:
   .section { padding: 82px 22px; }.desktop-nav, .header-cta { display: none; }.menu-toggle { display: block; }.mobile-nav { display: flex; flex-direction: column; gap: 18px; }
   .mobile-nav > a:not(.button) { border-bottom: 1px solid var(--line); font-family: Georgia, serif; font-size: 1.25rem; padding-bottom: 12px; }
   .hero { display: block; padding: 55px 22px 70px; }.hero::before { inset: 0; }
-  .hero-title .hero-main { font-size: clamp(3.15rem, 15vw, 5.2rem); }
+  .hero-title .hero-main { font-size: clamp(2.7rem, 12.4vw, 4.7rem); letter-spacing: -.07em; }
   .hero-title .hero-small { font-size: 1.25rem; }
   .hero-art { margin-top: 55px; min-height: 530px; }.trust-list { gap: 12px 17px; margin-top: 35px; }
   .split-heading { align-items: start; flex-direction: column; gap: 25px; }.section-heading { margin-bottom: 42px; }
