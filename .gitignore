@@ -1,42 +1,84 @@
-# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
-
-# dependencies
-/node_modules
-/.pnp
+# Dependencies
+node_modules/
+.pnp
 .pnp.*
+
+# Yarn modern project files that should remain versioned
 .yarn/*
-!.yarn/patches
-!.yarn/plugins
-!.yarn/releases
-!.yarn/versions
+!.yarn/patches/
+!.yarn/plugins/
+!.yarn/releases/
+!.yarn/sdks/
+!.yarn/versions/
 
-# testing
-/coverage
+# Build output and framework caches
+dist/
+out/
+.next/
+.vinext/
+.vite/
+.turbo/
+.cache/
 
-# next.js
-/.next/
-/.vinext/
-/out/
+# Cloudflare and Wrangler local state
+.wrangler/
+.dev.vars
+.dev.vars.*
 
-# misc
-.DS_Store
+# Test and coverage output
+coverage/
+.nyc_output/
+test-results/
+playwright-report/
+
+# Local runtime and generated working directories
+outputs/
+work/
+tmp/
+temp/
+
+# Environment files and local secrets
+.env
+.env.*
+!.env.example
+!.env.*.example
 *.pem
+*.key
+*.p12
 
-# debug
+# Debug and package-manager logs
+*.log
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
-.pnpm-debug.log*
+pnpm-debug.log*
+lerna-debug.log*
 
-# env files (can opt-in for committing if needed)
-.env*
-
-# vercel
-.vercel
-
-# typescript
+# TypeScript generated files
+*.tsbuildinfo
 next-env.d.ts
-/dist/
-/.wrangler/
-/outputs/
-/work/
+
+# Deployment-provider state
+.vercel/
+.netlify/
+
+# Editor and IDE settings
+.idea/
+.vscode/*
+!.vscode/extensions.json
+!.vscode/settings.json
+*.swp
+*.swo
+*~
+
+# Operating-system metadata
+.DS_Store
+.AppleDouble
+.LSOverride
+Thumbs.db
+Desktop.ini
+
+# Local archives and package artifacts
+*.tgz
+*.tar.gz
+
