@@ -318,7 +318,7 @@ export default function Home() {
         <div className="statement-inner">
           <p className="kicker">One dance floor. Infinite kinds of joy.</p>
           <h2>Bacche. Bade. Beginners.<br />Dancers. Non-dancers.<br /><em>Everyone can Jhoom.</em></h2>
-          <p>Hindi, Telugu or English. Flexible or stiff. Confident or nervous. There is a place for you here.</p>
+          <p>Dancer or non-dancer. Flexible or stiff. Confident or nervous. There is a place for you here.</p>
         </div>
       </section>
 
