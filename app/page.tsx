@@ -45,6 +45,38 @@ export default function Home() {
     };
   }, [menuOpen]);
 
+  useEffect(() => {
+    const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (reducedMotion) return;
+
+    const targets = document.querySelectorAll<HTMLElement>(
+      ".section-heading, .welcome-card, .about-visual, .about-copy, .session-card, .why-intro, .benefit, .statement-inner, .journey-step, .testimonial-grid figure, .faq-intro, .faq-list, .contact > *, footer > *"
+    );
+
+    document.documentElement.classList.add("motion-ready");
+    targets.forEach((target, index) => {
+      target.dataset.reveal = "";
+      target.style.setProperty("--reveal-delay", `${(index % 4) * 70}ms`);
+    });
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) return;
+          entry.target.classList.add("is-visible");
+          observer.unobserve(entry.target);
+        });
+      },
+      { rootMargin: "0px 0px -8% 0px", threshold: 0.12 }
+    );
+
+    targets.forEach((target) => observer.observe(target));
+    return () => {
+      observer.disconnect();
+      document.documentElement.classList.remove("motion-ready");
+    };
+  }, []);
+
   return (
     <main>
       <header className="site-header">
