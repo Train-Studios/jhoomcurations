@@ -16,7 +16,7 @@ import {
   Star,
   X,
 } from "lucide-react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import {
   CONTACT_EMAIL,
   FAQS,
@@ -33,12 +33,27 @@ const sessionIcons = [Heart, PartyPopper, Baby, Sparkles];
 export default function Home() {
   const [menuOpen, setMenuOpen] = useState(false);
 
+  useEffect(() => {
+    document.body.style.overflow = menuOpen ? "hidden" : "";
+    const closeOnEscape = (event: KeyboardEvent) => {
+      if (event.key === "Escape") setMenuOpen(false);
+    };
+    window.addEventListener("keydown", closeOnEscape);
+    return () => {
+      document.body.style.overflow = "";
+      window.removeEventListener("keydown", closeOnEscape);
+    };
+  }, [menuOpen]);
+
   return (
     <main>
       <header className="site-header">
         <a className="brand" href="#home" aria-label="Jhoom Curations home">
           <span className="brand-mark" aria-hidden="true">J</span>
-          <span>Jhoom <em>Curations</em></span>
+          <span className="brand-lockup">
+            <span>Jhoom <em>Curations</em></span>
+            <small>By Amilohit</small>
+          </span>
         </a>
         <nav className="desktop-nav" aria-label="Primary navigation">
           {NAV_ITEMS.map((item) => (
@@ -57,27 +72,46 @@ export default function Home() {
         >
           {menuOpen ? <X /> : <Menu />}
         </button>
-        {menuOpen && (
+      </header>
+      {menuOpen && (
+        <div className="mobile-panel" role="dialog" aria-modal="true" aria-label="Navigation menu">
+          <div className="mobile-panel-head">
+            <a className="brand" href="#home" onClick={() => setMenuOpen(false)}>
+              <span className="brand-mark" aria-hidden="true">J</span>
+              <span className="brand-lockup">
+                <span>Jhoom <em>Curations</em></span>
+                <small>By Amilohit</small>
+              </span>
+            </a>
+            <button className="panel-close" type="button" onClick={() => setMenuOpen(false)} aria-label="Close navigation menu">
+              <X />
+            </button>
+          </div>
           <nav className="mobile-nav" aria-label="Mobile navigation">
-            {NAV_ITEMS.map((item) => (
+            {NAV_ITEMS.map((item, index) => (
               <a key={item.href} href={item.href} onClick={() => setMenuOpen(false)}>
-                {item.label}
+                <span><small>0{index + 1}</small>{item.label}</span><ChevronDown size={18} />
               </a>
             ))}
-            <a className="button" href={enquiryHref}>Let&apos;s Dance <ArrowRight size={17} /></a>
           </nav>
-        )}
-      </header>
+          <a className="button mobile-dance-cta" href={enquiryHref}>Let&apos;s Dance <ArrowRight size={17} /></a>
+          <div className="mobile-founder-card">
+            {/* Replace this placeholder with Amilohit's photograph before publishing. */}
+            <div className="founder-photo-placeholder" role="img" aria-label="Placeholder for Amilohit's photograph">A</div>
+            <div><span>The person behind Jhoom Curations</span><strong>Meet Amilohit</strong></div>
+          </div>
+        </div>
+      )}
 
       <section className="hero" id="home">
         <div className="hero-copy">
           <p className="eyebrow"><Sparkles size={16} /> Dance for every body. Every age. Every mood.</p>
           <h1 className="hero-title">
             <span className="hero-small">your</span>
-            <span className="hero-main">Har Rasam</span>
-            <span className="hero-main">Har Rishta</span>
-            <span className="hero-main">Har Jhoom</span>
-            <span className="hero-small hero-closing">hamare saath</span>
+            <span className="hero-main">HAR RASAM</span>
+            <span className="hero-main">HAR RISHTA</span>
+            <span className="hero-main">HAR JHOOM</span>
+            <span className="hero-small hero-closing">hamaare saath</span>
           </h1>
           <p className="hero-intro">
             At Jhoom Curations by Amilohit, dance is not about being perfectly
@@ -116,6 +150,10 @@ export default function Home() {
           </div>
           <span className="spark spark-one">✦</span>
           <span className="spark spark-two">✺</span>
+          <div className="hero-art-copy">
+            <span>Movement · Expression · Joy</span>
+            <strong>Dance your heart out.</strong>
+          </div>
         </div>
       </section>
 
@@ -130,22 +168,26 @@ export default function Home() {
             ["02", "Think you are too stiff?", "You are welcome."],
             ["03", "Want to release stress?", "You are welcome."],
             ["04", "Young, old, shy, expressive, trained or completely new?", "You are welcome."],
-          ].map(([number, title, copy]) => (
-            <article className="welcome-card" key={number}>
-              <span>{number}</span><h3>{title}</h3><p>{copy}</p>
-            </article>
+          ].map(([number, title, copy], index) => (
+            <details className="welcome-card" key={number} open={index === 0 ? true : undefined}>
+              <summary><span>{number}</span><h3>{title}</h3><ChevronDown aria-hidden="true" /></summary>
+              <p>{copy}</p>
+            </details>
           ))}
         </div>
         <p className="rhythm-line"><Music2 /> You bring yourself. We&apos;ll help you find your rhythm.</p>
       </section>
 
       <section className="about section" id="about">
-        <div className="portrait-placeholder">
-          {/* Replace this placeholder with Amilohit's photograph before publishing. */}
-          <div className="portrait-art" role="img" aria-label="Placeholder for a future photograph of Amilohit">
-            <span className="portrait-initial">A</span>
-            <span className="portrait-caption">Photo of Amilohit<br />coming soon</span>
-          </div>
+        <div className="about-visual">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src="/dancer-cinematic.png"
+            alt="A dancer moving expressively on a warmly lit burgundy stage"
+            width="1024"
+            height="1536"
+          />
+          <div className="about-image-shade" aria-hidden="true" />
           <span className="portrait-badge">Curated with heart <Heart size={17} fill="currentColor" /></span>
         </div>
         <div className="about-copy">
@@ -164,7 +206,7 @@ export default function Home() {
             and enjoyment, he helps dancers and non-dancers alike discover
             movement without pressure or judgement.
           </p>
-          <blockquote>“Expressions come with confidence.<br /><span>The smile will come naturally.</span>”</blockquote>
+          <blockquote>Expressions come with confidence. <span>The smile will come naturally.</span></blockquote>
         </div>
       </section>
 
