@@ -128,8 +128,8 @@ export default function Home() {
           </nav>
           <a className="button mobile-dance-cta" href={enquiryHref}>Let&apos;s Dance <ArrowRight size={17} /></a>
           <div className="mobile-founder-card">
-            {/* Replace this placeholder with Amilohit's photograph before publishing. */}
-            <div className="founder-photo-placeholder" role="img" aria-label="Placeholder for Amilohit's photograph">A</div>
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img className="founder-photo" src="/amilohit.png" alt="Amilohit, founder of Jhoom Curations" />
             <div><span>The person behind Jhoom Curations</span><strong>Meet Amilohit</strong></div>
           </div>
         </div>
@@ -214,8 +214,8 @@ export default function Home() {
         <div className="about-visual">
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
-            src="/dancer-cinematic.png"
-            alt="A dancer moving expressively on a warmly lit burgundy stage"
+            src="/amilohit.png"
+            alt="Amilohit, founder of Jhoom Curations"
             width="1024"
             height="1536"
           />
@@ -226,17 +226,15 @@ export default function Home() {
           <p className="kicker">The Person Behind Jhoom Curations</p>
           <h2>Meet <em>Amilohit</em></h2>
           <p>
-            Amilohit is a dance educator with over seven and a half years in the
-            field, curating choreography for students across age groups and
-            experience levels. His work has taken shape in schools, colleges,
-            communities, studios, and other learning environments—always guided
-            by the belief that dance should feel accessible to everyone.
+            Amilohit is an experienced dance educator who curates choreography for students
+            across all age groups and experience levels. His work has taken shape in schools,
+            colleges, communities, studios, and other learning environments—always guided by
+            the belief that dance should feel accessible to everyone.
           </p>
           <p>
-            Each experience is shaped around the individual: their pace, comfort,
-            personality, and goals. With a warm focus on confidence, expression,
-            and enjoyment, he helps dancers and non-dancers alike discover
-            movement without pressure or judgement.
+            Each experience is shaped around the individual: their pace, comfort, personality,
+            and goals. With a warm focus on confidence, expression, and enjoyment,
+            he helps dancers and non-dancers alike discover movement without pressure or judgement.
           </p>
           <blockquote>Expressions come with confidence. <span>The smile will come naturally.</span></blockquote>
         </div>
