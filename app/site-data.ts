@@ -1,4 +1,5 @@
-export const CONTACT_EMAIL = "hello@jhoomcurations.com";
+export const CONTACT_EMAIL = "jhoomcurations@gmail.com";
+export const INSTAGRAM_URL = "https://www.instagram.com/jhoom_curations?igsh=MzZ5b3IwZmJvdzJk&utm_source=qr";
 
 export const NAV_ITEMS = [
   { label: "Home", href: "#home" },
@@ -47,9 +48,18 @@ export const WHY_JHOOM = [
 ];
 
 export const TESTIMONIALS = [
-  { label: "Beginner Student", quote: "I arrived feeling awkward and left feeling completely free. The session moved at my pace and made dancing feel possible." },
-  { label: "Wedding Client", quote: "The choreography felt like us—joyful, natural, and easy for our whole family to enjoy together." },
-  { label: "Parent of a Student", quote: "The focus on confidence and expression made such a difference. Every class ended with a very big smile." },
+  {
+    label: "Pratyusha Konduri",
+    quote: "Jhoom Curations made me realise that dance is for everyone, not just trained performers. Every session felt personalised, encouraging, and full of positive energy. I walked in with hesitation and walked out with confidence.",
+  },
+  {
+    label: "Vikas Gudimanchi",
+    quote: "I've rarely seen someone teach dance with so much patience and passion. Amilohit creates a comfortable space where anyone, regardless of experience, can genuinely enjoy dancing. Every session leaves you happier than when you arrived.",
+  },
+  {
+    label: "Shreya Ubale",
+    quote: "What stands out about Jhoom Curations is the warmth and attention given to every individual. The choreography is thoughtfully designed, the environment is welcoming, and learning dance becomes an experience you truly look forward to.",
+  },
 ];
 
 export const FAQS = [
@@ -60,5 +70,5 @@ export const FAQS = [
   { question: "Which languages can sessions be conducted in?", answer: "Sessions can be conducted in Telugu, Hindi, or English." },
   { question: "Are sessions personalised?", answer: "Yes. Pace, choreography, comfort, goals, and personality all shape the experience." },
   { question: "Do you provide wedding choreography?", answer: "Yes. Couples, families, bridesmaids, groomsmen, and groups can all receive personalised wedding choreography." },
-  { question: "How can I enquire about a session?", answer: "Email hello@jhoomcurations.com with a little about yourself and the kind of session you are looking for." },
+  { question: "How can I enquire about a session?", answer: `Email ${CONTACT_EMAIL} with a little about yourself and the kind of session you are looking for.` },
 ];

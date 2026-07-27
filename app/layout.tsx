@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import "./globals.css";
+import { CONTACT_EMAIL, INSTAGRAM_URL } from "./site-data";
 
 const title = "Jhoom Curations by Amilohit | Dance for Everyone";
 const description = "Personalised, joyful and beginner-friendly dance choreography for all ages, abilities and experience levels. Dance your heart out with Jhoom Curations by Amilohit.";
@@ -28,7 +29,8 @@ const jsonLd = {
   "@type": "DanceSchool",
   name: "Jhoom Curations by Amilohit",
   description,
-  email: "hello@jhoomcurations.com",
+  email: CONTACT_EMAIL,
+  sameAs: [INSTAGRAM_URL],
   availableLanguage: ["English", "Hindi", "Telugu"],
   serviceType: ["Dance classes", "Personal choreography", "Wedding choreography"],
 };

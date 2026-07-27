@@ -10,12 +10,10 @@ A responsive, static dance choreography website built with React, TypeScript, Vi
 
 Create a production build with `npm run build`.
 
-## Content to update before publishing
+## Brand contacts
 
-- **Contact email:** change the `CONTACT_EMAIL` constant in `app/site-data.ts`.
-- **Amilohit’s photo:** replace the commented portrait placeholder in `app/page.tsx`.
-- **Testimonials:** replace the clearly commented placeholder entries in `app/site-data.ts` with verified customer feedback.
-- **Instagram:** replace the “Instagram coming soon” placeholder link in the footer in `app/page.tsx`.
+- **Email:** jhoomcurations@gmail.com
+- **Instagram:** https://www.instagram.com/jhoom_curations
 
 ## Free deployment on Vercel
 

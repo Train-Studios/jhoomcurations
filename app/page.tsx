@@ -20,6 +20,7 @@ import { useEffect, useState } from "react";
 import {
   CONTACT_EMAIL,
   FAQS,
+  INSTAGRAM_URL,
   NAV_ITEMS,
   SESSIONS,
   TESTIMONIALS,
@@ -32,14 +33,20 @@ const sessionIcons = [Heart, PartyPopper, Baby, Sparkles];
 
 function BrandLogo() {
   return (
-    // eslint-disable-next-line @next/next/no-img-element
-    <img
-      className="brand-logo"
-      src="/logo.png"
-      alt="Jhoom Curations by Amilohit"
-      width="1200"
-      height="1200"
-    />
+    <>
+      {/* eslint-disable-next-line @next/next/no-img-element */}
+      <img
+        className="brand-logo"
+        src="/logo.png"
+        alt=""
+        width="1200"
+        height="1200"
+      />
+      <span className="brand-lockup">
+        <span>Jhoom <em>Curations</em></span>
+        <small>By Amilohit</small>
+      </span>
+    </>
   );
 }
 
@@ -330,15 +337,13 @@ export default function Home() {
         <div className="section-heading centered">
           <p className="kicker">Joy, in their words</p>
           <h2>Reasons to <em>Keep Moving</em></h2>
-          <p className="placeholder-note">Sample testimonials — replace with verified customer feedback before publishing.</p>
         </div>
-        {/* These placeholder testimonials must be replaced with real customer feedback before publishing. */}
         <div className="testimonial-grid">
           {TESTIMONIALS.map((testimonial) => (
             <figure key={testimonial.label}>
               <div className="stars" aria-label="Decorative five stars">{Array.from({ length: 5 }).map((_, i) => <Star key={i} size={15} fill="currentColor" />)}</div>
-              <blockquote>“{testimonial.quote}”</blockquote>
-              <figcaption><span className="avatar"><Heart /></span><span><strong>{testimonial.label}</strong><small>Placeholder feedback</small></span></figcaption>
+              <blockquote>&quot;{testimonial.quote}&quot;</blockquote>
+              <figcaption><span className="avatar"><Heart /></span><span><strong>{testimonial.label}</strong></span></figcaption>
             </figure>
           ))}
         </div>
@@ -373,7 +378,7 @@ export default function Home() {
           <p>Personalised dance experiences for every body, every age, and every mood.</p>
         </div>
         <div><h3>Explore</h3>{NAV_ITEMS.map((item) => <a key={item.href} href={item.href}>{item.label}</a>)}</div>
-        <div><h3>Say hello</h3><a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a><a href="#" aria-label="Instagram profile placeholder">Instagram coming soon</a></div>
+        <div><h3>Say hello</h3><a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a><a href={INSTAGRAM_URL} aria-label="Jhoom Curations on Instagram">Instagram</a></div>
         <div className="footer-bottom"><span>© {new Date().getFullYear()} Jhoom Curations by Amilohit</span><span>Made with rhythm, expression and joy. <Heart size={14} fill="currentColor" /></span></div>
       </footer>
     </main>

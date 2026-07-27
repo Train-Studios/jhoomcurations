@@ -223,7 +223,6 @@ h2 em, h1 span { color: var(--coral); font-weight: inherit; }
 .journey-step p { color: var(--muted); font-size: .9rem; line-height: 1.65; }
 
 .testimonials { background: var(--paper); }
-.placeholder-note { color: #A89286; font-size: .72rem; margin: 15px auto 0; }
 .testimonial-grid { display: grid; gap: 18px; grid-template-columns: repeat(3, 1fr); }
 .testimonial-grid figure { background: var(--cream); border-radius: 26px; margin: 0; padding: 34px; }
 .stars { color: var(--saffron); display: flex; gap: 4px; }
