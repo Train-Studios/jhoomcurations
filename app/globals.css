@@ -203,14 +203,15 @@ h2 em, h1 span { color: var(--coral); font-weight: inherit; }
 
 .statement { background: #EEDAD0; overflow: hidden; padding: 0 0 100px; text-align: center; }
 .marquee { background: var(--coral); color: white; font-family: Georgia, serif; font-size: clamp(1rem, 2vw, 1.5rem); font-style: italic; overflow: hidden; padding: 12px; white-space: nowrap; }
-.marquee span { display: inline-block; min-width: 200%; animation: slide 16s linear infinite; }
+.marquee-track { animation: slide 24s linear infinite; display: flex; width: max-content; }
+.marquee-group { display: flex; flex-shrink: 0; }
+.marquee-group span { padding-right: 1.25em; }
+.marquee-group b { font-style: normal; font-weight: inherit; padding-left: 1.25em; }
 .statement-inner { margin: auto; max-width: 1100px; padding: 100px 24px 0; }
 .statement .kicker { color: var(--plum); justify-content: center; }
 .statement h2 { color: var(--plum); font-size: clamp(3.3rem, 7vw, 7.2rem); }
 .statement h2 em { color: white; }
 .statement-inner > p:not(.kicker) { font-size: 1rem; line-height: 1.7; margin: 0 auto 28px; max-width: 650px; }
-.language-pills { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; }
-.language-pills span { background: rgba(255,253,252,.7); border: 1px solid rgba(166,62,35,.2); border-radius: 999px; font-weight: 800; padding: 10px 18px; }
 
 .centered { text-align: center; }
 .centered .kicker { justify-content: center; }

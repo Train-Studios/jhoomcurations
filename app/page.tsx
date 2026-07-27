@@ -304,12 +304,21 @@ export default function Home() {
       </section>
 
       <section className="statement">
-        <div className="marquee" aria-hidden="true"><span>EVERYONE CAN JHOOM • EVERYONE CAN JHOOM •&nbsp;</span></div>
+        <div className="marquee" aria-hidden="true">
+          <div className="marquee-track">
+            {[0, 1].map((group) => (
+              <div className="marquee-group" key={group}>
+                {Array.from({ length: 4 }, (_, item) => (
+                  <span key={item}>let us be a part of your memories <b>•</b></span>
+                ))}
+              </div>
+            ))}
+          </div>
+        </div>
         <div className="statement-inner">
           <p className="kicker">One dance floor. Infinite kinds of joy.</p>
           <h2>Bacche. Bade. Beginners.<br />Dancers. Non-dancers.<br /><em>Everyone can Jhoom.</em></h2>
           <p>Hindi, Telugu or English. Flexible or stiff. Confident or nervous. There is a place for you here.</p>
-          <div className="language-pills"><span>हिन्दी</span><span>తెలుగు</span><span>English</span></div>
         </div>
       </section>
 
