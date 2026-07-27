@@ -78,7 +78,7 @@ h2 em, h1 span { color: var(--coral); font-weight: inherit; }
 .hero-title { display: flex; flex-direction: column; gap: .05em; }
 .hero-title .hero-main {
   color: var(--plum); display: block; font-size: clamp(3.8rem, 6.6vw, 7.4rem);
-  font-family: inherit; font-style: normal; font-weight: 400;
+  font-family: Arial, Helvetica, sans-serif; font-style: normal; font-weight: 400;
   letter-spacing: -.065em; line-height: .84; white-space: nowrap;
 }
 .hero-title .hero-small {
@@ -310,7 +310,7 @@ footer > div:not(.footer-brand):not(.footer-bottom) a { color: #FAF2EC; display:
   .eyebrow { font-size: .6rem; letter-spacing: .14em; margin-bottom: 24px; }
   .hero-title { gap: .02em; }
   .hero-title .hero-main {
-    font-family: Georgia, "Times New Roman", serif; font-size: clamp(2.65rem, 12vw, 4.5rem);
+    font-size: clamp(2.65rem, 12vw, 4.5rem);
     font-weight: 400; letter-spacing: -.065em; line-height: .87;
   }
   .hero-title .hero-small { color: var(--coral); font-size: 1.18rem; }
