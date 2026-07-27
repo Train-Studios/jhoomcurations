@@ -8,7 +8,7 @@ export const metadata: Metadata = {
   title,
   description,
   metadataBase: new URL("https://jhoom-curations.vikasgudimanchi1.chatgpt.site"),
-  icons: { icon: "/favicon.svg", shortcut: "/favicon.svg" },
+  icons: { icon: "/logo.png", shortcut: "/logo.png", apple: "/logo.png" },
   openGraph: {
     title,
     description,

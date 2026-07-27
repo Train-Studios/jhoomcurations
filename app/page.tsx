@@ -30,6 +30,19 @@ const enquiryHref = `mailto:${CONTACT_EMAIL}?subject=Dance%20Session%20Enquiry`;
 
 const sessionIcons = [Heart, PartyPopper, Baby, Sparkles];
 
+function BrandLogo() {
+  return (
+    // eslint-disable-next-line @next/next/no-img-element
+    <img
+      className="brand-logo"
+      src="/logo.png"
+      alt="Jhoom Curations by Amilohit"
+      width="1200"
+      height="1200"
+    />
+  );
+}
+
 export default function Home() {
   const [menuOpen, setMenuOpen] = useState(false);
 
@@ -81,11 +94,7 @@ export default function Home() {
     <main>
       <header className="site-header">
         <a className="brand" href="#home" aria-label="Jhoom Curations home">
-          <span className="brand-mark" aria-hidden="true">J</span>
-          <span className="brand-lockup">
-            <span>Jhoom <em>Curations</em></span>
-            <small>By Amilohit</small>
-          </span>
+          <BrandLogo />
         </a>
         <nav className="desktop-nav" aria-label="Primary navigation">
           {NAV_ITEMS.map((item) => (
@@ -108,12 +117,8 @@ export default function Home() {
       {menuOpen && (
         <div className="mobile-panel" role="dialog" aria-modal="true" aria-label="Navigation menu">
           <div className="mobile-panel-head">
-            <a className="brand" href="#home" onClick={() => setMenuOpen(false)}>
-              <span className="brand-mark" aria-hidden="true">J</span>
-              <span className="brand-lockup">
-                <span>Jhoom <em>Curations</em></span>
-                <small>By Amilohit</small>
-              </span>
+            <a className="brand" href="#home" aria-label="Jhoom Curations home" onClick={() => setMenuOpen(false)}>
+              <BrandLogo />
             </a>
             <button className="panel-close" type="button" onClick={() => setMenuOpen(false)} aria-label="Close navigation menu">
               <X />
@@ -364,7 +369,7 @@ export default function Home() {
 
       <footer>
         <div className="footer-brand">
-          <a className="brand brand-light" href="#home"><span className="brand-mark">J</span><span>Jhoom <em>Curations</em></span></a>
+          <a className="brand brand-light" href="#home" aria-label="Jhoom Curations home"><BrandLogo /></a>
           <p>Personalised dance experiences for every body, every age, and every mood.</p>
         </div>
         <div><h3>Explore</h3>{NAV_ITEMS.map((item) => <a key={item.href} href={item.href}>{item.label}</a>)}</div>

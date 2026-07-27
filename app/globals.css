@@ -42,6 +42,7 @@ h2 em, h1 span { color: var(--coral); font-weight: inherit; }
   justify-content: space-between; left: 0; padding: 0 max(5vw, 24px); position: sticky; right: 0; top: 0; z-index: 30;
 }
 .brand { align-items: center; display: flex; font-family: Georgia, serif; font-size: 1.2rem; gap: 10px; letter-spacing: -.03em; }
+.brand-logo { display: block; height: 66px; object-fit: contain; width: 66px; }
 .brand em { color: var(--coral); font-style: normal; }
 .brand-lockup { display: grid; line-height: 1; }
 .brand-lockup small { color: var(--muted); font-family: Arial, Helvetica, sans-serif; font-size: .52rem; font-weight: 800; letter-spacing: .18em; margin-top: 6px; text-transform: uppercase; }
@@ -258,6 +259,7 @@ details p { color: var(--muted); line-height: 1.7; padding: 0 45px 25px 5px; }
 
 footer { background: #70251A; border-top: 1px solid rgba(227,165,88,.45); color: white; display: grid; gap: 50px; grid-template-columns: 1.5fr .6fr 1fr; padding: 70px max(5vw, 24px) 25px; }
 .brand-light .brand-mark { background: var(--coral); }.footer-brand p { color: #EEDAD0; line-height: 1.7; margin-top: 22px; max-width: 350px; }
+.footer-brand .brand-logo { height: 92px; width: 92px; }
 footer h3 { color: #E3A558; font-size: .69rem; letter-spacing: .15em; margin-bottom: 20px; text-transform: uppercase; }
 footer > div:not(.footer-brand):not(.footer-bottom) a { color: #FAF2EC; display: block; font-size: .82rem; margin: 0 0 13px; }
 .footer-bottom { border-top: 1px solid rgba(227,165,88,.28); color: #CEA690; display: flex; font-size: .7rem; grid-column: 1 / -1; justify-content: space-between; padding-top: 24px; }
@@ -360,12 +362,13 @@ footer > div:not(.footer-brand):not(.footer-bottom) a { color: #FAF2EC; display:
   footer { grid-template-columns: 1fr; } footer > div { grid-column: 1 / -1; }
 }
 @media (max-width: 760px) {
-  body { background: #6f1d1b; }
+  body { background: var(--cream); }
   .site-header {
     background: rgba(250,242,236,.96); border-bottom-color: rgba(166,62,35,.16); height: 74px;
     padding: 0 18px;
   }
   .brand { font-size: 1.08rem; gap: 9px; }
+  .brand-logo { height: 58px; width: 58px; }
   .brand-mark { border-radius: 50%; font-size: 1.2rem; height: 42px; transform: none; width: 42px; }
   .brand-lockup small { font-size: .48rem; letter-spacing: .16em; margin-top: 5px; }
   .menu-toggle { align-items: center; border: 1px solid rgba(166,62,35,.2); border-radius: 50%; display: flex; height: 42px; justify-content: center; width: 42px; }
@@ -425,6 +428,7 @@ footer > div:not(.footer-brand):not(.footer-bottom) a { color: #FAF2EC; display:
     background-position: center, center, center bottom; background-repeat: no-repeat; background-size: cover, cover, auto 96%;
     border-radius: 24px; min-height: 440px; transform: none;
   }
+  .hero-art { display: none; }
   .hero-art::after { border: 1px solid rgba(227,165,88,.45); border-radius: 24px; inset: 10px; height: auto; width: auto; }
   .hero-art .orbit, .hero-art .dance-card, .hero-art .dancer-shape, .hero-art .spark { display: none; }
   .hero-art-copy { bottom: 28px; color: white; display: flex; flex-direction: column; gap: 7px; left: 25px; position: absolute; z-index: 3; }
@@ -475,6 +479,17 @@ footer > div:not(.footer-brand):not(.footer-bottom) a { color: #FAF2EC; display:
 
   .sessions, .journey, .testimonials, .faq { margin-bottom: 12px; }
   .session-card, .testimonial-grid figure { border-radius: 20px; }
+  .journey .section-heading { margin-bottom: 28px; }
+  .journey-grid { gap: 14px; }
+  .journey-step {
+    align-items: center; background: var(--cream); border: 1px solid rgba(227,165,88,.4);
+    border-radius: 20px; display: flex; flex-direction: column; min-height: 0; padding: 24px 20px 22px;
+  }
+  .journey-step:last-child { border: 1px solid rgba(227,165,88,.4); }
+  .step-number { letter-spacing: .14em; margin-bottom: 12px; }
+  .journey-step > svg { flex: 0 0 auto; height: 58px; margin: 0 0 16px; padding: 17px; width: 58px; }
+  .journey-step h3 { font-size: 1.35rem; margin: 0 0 8px; }
+  .journey-step p { margin: 0; max-width: 290px; }
   .why, .statement, .contact { margin-bottom: 12px; }
   .why-seal { height: 118px; width: 118px; }
   footer { border-radius: 28px 28px 0 0; margin: 0 10px; }
