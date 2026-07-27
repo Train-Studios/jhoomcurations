@@ -248,7 +248,7 @@ export default function Home() {
             and goals. With a warm focus on confidence, expression, and enjoyment,
             he helps dancers and non-dancers alike discover movement without pressure or judgement.
           </p>
-          <blockquote>Expressions come with confidence. <span>The smile will come naturally.</span></blockquote>
+          <blockquote>&quot;Expressions come with confidence. <span>The smile will come naturally.&quot;</span></blockquote>
         </div>
       </section>
 
