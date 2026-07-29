@@ -224,44 +224,12 @@ export default function Home() {
             ))}
           </ul>
         </div>
-        <div
-          className="hero-art"
-          aria-label="Abstract illustration of joyful dance and movement"
-          role="img"
-        >
-          <span className="orbit orbit-one" />
-          <span className="orbit orbit-two" />
-          <div className="dance-card card-coral">
-            <span className="mini-label">No steps to prove.</span>
-            <strong>
-              Just joy
-              <br />
-              to find.
-            </strong>
-            <Smile size={40} strokeWidth={1.5} />
-          </div>
-          <div className="dancer-shape" aria-hidden="true">
-            <span className="head" />
-            <span className="body" />
-            <span className="arm arm-left" />
-            <span className="arm arm-right" />
-            <span className="leg leg-left" />
-            <span className="leg leg-right" />
-          </div>
-          <div className="dance-card card-saffron">
-            <Music2 size={22} />
-            <span>
-              Move in your
-              <br />
-              <strong>own language.</strong>
-            </span>
-          </div>
-          <span className="spark spark-one">✦</span>
-          <span className="spark spark-two">✺</span>
-          <div className="hero-art-copy">
-            <span>Movement · Expression · Joy</span>
-            <strong>Dance your heart out.</strong>
-          </div>
+        <div className="hero-art" aria-label="Jhoom Curations logo" role="img">
+          <img
+            className="hero-art-logo"
+            src="/logo-outline.png"
+            alt="Jhoom Curations logo"
+          />
         </div>
       </section>
 
