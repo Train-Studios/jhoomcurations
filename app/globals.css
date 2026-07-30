@@ -368,21 +368,16 @@ h1 span {
 }
 .hero-art-logo {
   display: block;
-  height: auto;
+  height: 100%;
   max-height: clamp(320px, 55vw, 600px);
   max-width: clamp(400px, 60vw, 650px);
   object-fit: contain;
+  object-position: center;
   opacity: 1;
-  transition:
-    transform 0.25s ease,
-    filter 0.25s ease;
+  transform: scale(1.04);
+  transition: none;
   width: auto;
   filter: none;
-}
-.hero-art:hover .hero-art-logo {
-  filter: drop-shadow(0 16px 24px rgba(20, 5, 10, 0.35))
-    drop-shadow(0 6px 10px rgba(20, 5, 10, 0.22));
-  transform: translateY(-8px) scale(1.02);
 }
 .orbit {
   display: none;
