@@ -226,6 +226,12 @@ export default function Home() {
         </div>
         <div className="hero-art" aria-label="Jhoom Curations logo" role="img">
           <img
+            className="hero-art-logo-shadow"
+            src="/logo-outline.png"
+            alt=""
+            aria-hidden="true"
+          />
+          <img
             className="hero-art-logo"
             src="/logo-outline.png"
             alt="Jhoom Curations logo"
