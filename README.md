@@ -12,7 +12,7 @@ Create a production build with `npm run build`.
 
 ## Brand contacts
 
-- **Email:** jhoomcurations@gmail.com
+- **Email:** hello@jhoomcurations.com
 - **Instagram:** https://www.instagram.com/jhoom_curations
 
 ## Free deployment on Vercel

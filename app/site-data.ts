@@ -1,4 +1,4 @@
-export const CONTACT_EMAIL = "jhoomcurations@gmail.com";
+export const CONTACT_EMAIL = "hello@jhoomcurations.com";
 export const INSTAGRAM_URL = "https://www.instagram.com/jhoom_curations?igsh=MzZ5b3IwZmJvdzJk&utm_source=qr";
 
 export const NAV_ITEMS = [
