@@ -1211,6 +1211,9 @@ footer {
 .brand-light .brand-mark {
   background: var(--coral);
 }
+.brand-light .brand-lockup small {
+  color: rgba(255, 255, 255, 0.82);
+}
 .footer-brand p {
   color: #eedad0;
   line-height: 1.7;
