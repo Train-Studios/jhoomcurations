@@ -402,7 +402,7 @@ h1 span {
 }
 @media (hover: hover) and (pointer: fine) {
   .hero-art:hover .hero-art-logo-shadow {
-    opacity: 0.42;
+    opacity: 0.24;
     transform: translate(14px, 12px) scale(1.04);
     filter: brightness(0) saturate(100%) blur(5px);
   }
@@ -1210,6 +1210,9 @@ footer {
 }
 .brand-light .brand-mark {
   background: var(--coral);
+}
+.brand-light .brand-lockup small {
+  color: rgba(255, 255, 255, 0.82);
 }
 .footer-brand p {
   color: #eedad0;
