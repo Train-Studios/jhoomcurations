@@ -358,26 +358,63 @@ h1 span {
   background: transparent;
   border: 0;
   border-radius: 0;
-  display: flex;
-  justify-content: center;
-  min-height: clamp(280px, 34vw, 420px);
+  display: grid;
+  justify-items: center;
+  min-height: clamp(340px, 40vw, 620px);
   overflow: visible;
   padding: 0;
   position: relative;
   transform: none;
 }
-.hero-art-logo {
-  display: block;
+.hero-art-logo,
+.hero-art-logo-shadow {
+  grid-area: 1 / 1;
   height: 100%;
-  max-height: clamp(320px, 55vw, 600px);
-  max-width: clamp(400px, 60vw, 650px);
+  max-height: clamp(360px, 50vw, 640px);
+  max-width: 100%;
   object-fit: contain;
   object-position: center;
+  width: clamp(380px, 43vw, 720px);
+}
+.hero-art-logo {
+  display: block;
   opacity: 1;
-  transform: scale(1.04);
-  transition: none;
-  width: auto;
+  transform: translateZ(0) scale(1.02);
+  transition:
+    filter 0.4s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
   filter: none;
+  position: relative;
+  z-index: 2;
+}
+.hero-art-logo-shadow {
+  display: block;
+  opacity: 0;
+  pointer-events: none;
+  position: relative;
+  transform: translate(0, 0) scale(1.02);
+  transition:
+    opacity 0.35s ease,
+    transform 0.4s cubic-bezier(0.22, 1, 0.36, 1),
+    filter 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+  z-index: 1;
+  filter: brightness(0) saturate(100%) blur(4px);
+}
+@media (hover: hover) and (pointer: fine) {
+  .hero-art:hover .hero-art-logo-shadow {
+    opacity: 0.42;
+    transform: translate(14px, 12px) scale(1.04);
+    filter: brightness(0) saturate(100%) blur(5px);
+  }
+  .hero-art:hover .hero-art-logo {
+    transform: translateY(-6px) scale(1.04);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .hero-art-logo,
+  .hero-art-logo-shadow {
+    transition: none;
+  }
 }
 .orbit {
   display: none;
