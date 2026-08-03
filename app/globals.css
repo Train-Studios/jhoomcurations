@@ -1233,9 +1233,35 @@ footer h3 {
 }
 footer > div:not(.footer-brand):not(.footer-bottom) a {
   color: #faf2ec;
-  display: block;
+  align-items: center;
+  display: flex;
   font-size: 0.82rem;
+  gap: 6px;
   margin: 0 0 13px;
+  text-decoration: underline;
+  text-decoration-color: rgba(250, 242, 236, 0.55);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+  transition:
+    color 0.2s ease,
+    text-decoration-color 0.2s ease;
+}
+footer > div:not(.footer-brand):not(.footer-bottom) a svg {
+  color: currentColor;
+  opacity: 0.9;
+  transition:
+    transform 0.2s ease,
+    opacity 0.2s ease;
+}
+footer > div:not(.footer-brand):not(.footer-bottom) a:hover,
+footer > div:not(.footer-brand):not(.footer-bottom) a:focus-visible {
+  color: #fff;
+  text-decoration-color: #e3a558;
+}
+footer > div:not(.footer-brand):not(.footer-bottom) a:hover svg,
+footer > div:not(.footer-brand):not(.footer-bottom) a:focus-visible svg {
+  opacity: 1;
+  transform: translate(1px, -1px);
 }
 .footer-bottom {
   border-top: 1px solid rgba(227, 165, 88, 0.28);
