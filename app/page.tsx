@@ -24,6 +24,8 @@ import {
   NAV_ITEMS,
   SESSIONS,
   TESTIMONIALS,
+  WHATSAPP_NUMBER,
+  WHATSAPP_URL,
   WHY_JHOOM,
 } from './site-data';
 
@@ -570,6 +572,9 @@ export default function Home() {
         <div>
           <h3>Say hello</h3>
           <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a>
+          <a href={WHATSAPP_URL} target="_blank" rel="noreferrer">
+            WhatsApp: {WHATSAPP_NUMBER}
+          </a>
           <a href={INSTAGRAM_URL} aria-label="Jhoom Curations on Instagram">
             Instagram
           </a>
