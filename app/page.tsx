@@ -198,7 +198,11 @@ export default function Home() {
               </a>
             ))}
           </nav>
-          <a className="button mobile-dance-cta" href="#sessions">
+          <a
+            className="button mobile-dance-cta"
+            href="#sessions"
+            onClick={() => setMenuOpen(false)}
+          >
             Let&apos;s Dance <ArrowRight size={17} />
           </a>
           <div className="mobile-founder-card">
