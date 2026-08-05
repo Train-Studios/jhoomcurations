@@ -143,7 +143,7 @@ export default function Home() {
             </a>
           ))}
         </nav>
-        <a className="button button-small header-cta" href={enquiryHref}>
+        <a className="button button-small header-cta" href="#sessions">
           Let&apos;s Dance <ArrowDownRight size={17} />
         </a>
         <button
@@ -198,7 +198,7 @@ export default function Home() {
               </a>
             ))}
           </nav>
-          <a className="button mobile-dance-cta" href={enquiryHref}>
+          <a className="button mobile-dance-cta" href="#sessions">
             Let&apos;s Dance <ArrowRight size={17} />
           </a>
           <div className="mobile-founder-card">
@@ -234,7 +234,7 @@ export default function Home() {
             leaving your stress behind, and finding joy in every movement.
           </p>
           <div className="hero-actions">
-            <a className="button" href={enquiryHref}>
+            <a className="button" href="#sessions">
               Start Your Dance Journey <ArrowRight size={19} />
             </a>
             <a className="text-link" href="#about">
