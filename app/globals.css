@@ -767,98 +767,73 @@ h1 span {
 .sessions {
   background: #eedad0;
 }
-.sessions-grid {
-  display: grid;
-  gap: 20px;
-  grid-template-columns: repeat(2, 1fr);
-}
-.session-card {
+.sangeet-feature {
+  align-items: center;
   background: var(--paper);
   border: 1px solid rgba(227, 165, 88, 0.35);
-  border-radius: 22px;
-  min-height: 430px;
-  padding: 34px;
-  position: relative;
+  border-radius: 28px;
+  display: grid;
+  gap: 40px;
+  grid-template-columns: auto 1fr;
+  padding: 50px;
   transition:
     border-color 0.25s,
     box-shadow 0.25s,
     transform 0.25s;
 }
-.session-card:hover {
+.sangeet-feature:hover {
   border-color: rgba(227, 165, 88, 0.8);
   box-shadow: 0 20px 45px rgba(112, 37, 26, 0.1);
   transform: translateY(-6px);
 }
-.icon-box {
+.sangeet-feature-icon {
   align-items: center;
-  background: #eedad0;
-  border: 1px solid rgba(227, 165, 88, 0.45);
-  border-radius: 14px;
-  color: var(--plum);
+  background: var(--plum);
+  border-radius: 50%;
+  color: white;
   display: flex;
-  height: 52px;
+  flex-shrink: 0;
+  height: 110px;
   justify-content: center;
-  width: 52px;
+  width: 110px;
 }
-.card-number {
-  color: #a89286;
-  font-family: Georgia, serif;
-  font-size: 0.8rem;
-  position: absolute;
-  right: 28px;
-  top: 30px;
+.sangeet-feature-icon svg {
+  height: 42px;
+  width: 42px;
 }
-.session-card h3 {
+.sangeet-feature-body h3 {
   font-family: Georgia, serif;
-  font-size: 1.7rem;
+  font-size: 2rem;
   font-weight: 500;
-  margin: 50px 0 18px;
+  margin-bottom: 16px;
 }
-.session-card p {
+.sangeet-feature-body > p {
   color: var(--muted);
-  font-size: 0.9rem;
-  line-height: 1.7;
+  font-size: 1rem;
+  line-height: 1.75;
+  max-width: 640px;
 }
-.session-levels {
+.sangeet-highlights {
   display: grid;
-  gap: 8px;
-  margin: 22px 0 58px;
+  gap: 14px;
+  grid-template-columns: repeat(2, 1fr);
+  list-style: none;
+  margin: 26px 0 32px;
+  padding: 0;
 }
-.session-level {
+.sangeet-highlights li {
   align-items: start;
-  background: var(--cream);
-  border-left: 2px solid var(--saffron);
-  border-radius: 0 9px 9px 0;
-  display: grid;
-  gap: 3px;
-  padding: 10px 12px;
-}
-.session-level span {
-  color: var(--plum);
-  font-family: Georgia, serif;
+  color: var(--ink);
+  display: flex;
   font-size: 0.9rem;
   font-weight: 700;
+  gap: 9px;
+  line-height: 1.5;
 }
-.session-level small {
-  color: var(--muted);
-  font-size: 0.72rem;
-  line-height: 1.45;
-}
-.session-card a {
-  align-items: center;
-  bottom: 30px;
+.sangeet-highlights li svg {
   color: var(--coral);
-  display: flex;
-  font-size: 0.8rem;
-  font-weight: 800;
-  gap: 8px;
-  position: absolute;
-}
-.session-card a:hover svg {
-  transform: translateX(4px);
-}
-.session-card a svg {
-  transition: transform 0.2s;
+  flex: 0 0 auto;
+  margin-top: 2px;
 }
 
 .pricing {
@@ -1299,14 +1274,27 @@ details p {
   margin: 0 auto;
   max-width: 900px;
 }
+.form-honey {
+  height: 0;
+  left: -9999px;
+  opacity: 0;
+  pointer-events: none;
+  position: absolute;
+  width: 0;
+}
 .form-grid {
+  border: 0;
   display: grid;
   gap: 22px;
   grid-template-columns: repeat(2, 1fr);
+  margin: 0;
+  min-width: 0;
+  padding: 0;
 }
 .form-field {
   display: grid;
   gap: 9px;
+  min-width: 0;
 }
 .form-field-wide {
   grid-column: 1 / -1;
@@ -1327,6 +1315,8 @@ details p {
   color: var(--ink);
   font-family: inherit;
   font-size: 0.95rem;
+  max-width: 100%;
+  min-width: 0;
   padding: 14px 16px;
   transition:
     border-color 0.2s,
@@ -1337,6 +1327,9 @@ details p {
   min-height: 120px;
   resize: vertical;
 }
+.form-field input[type='date'] {
+  color-scheme: light;
+}
 .form-field input:focus,
 .form-field select:focus,
 .form-field textarea:focus {
@@ -1346,6 +1339,35 @@ details p {
 }
 .enquiry-submit {
   margin-top: 34px;
+}
+.enquiry-submit:disabled {
+  cursor: not-allowed;
+  opacity: 0.65;
+}
+.form-status {
+  align-items: center;
+  display: flex;
+  font-size: 0.88rem;
+  font-weight: 700;
+  gap: 8px;
+  margin: 18px 0 0;
+}
+.form-status-success {
+  color: var(--plum);
+}
+.form-status-success svg {
+  color: var(--coral);
+  flex: 0 0 auto;
+}
+.form-status-error {
+  color: #b3261e;
+}
+.form-status-error svg {
+  flex: 0 0 auto;
+}
+.form-status-error a {
+  text-decoration: underline;
+  text-underline-offset: 3px;
 }
 
 .contact {
@@ -1573,14 +1595,14 @@ footer > div:not(.footer-brand):not(.footer-bottom) a:focus-visible svg {
   animation: spark-drift 4.8s ease-in-out -0.9s infinite reverse;
 }
 .journey-step > svg,
-.icon-box {
+.sangeet-feature-icon {
   transition:
     background 0.35s ease,
     color 0.35s ease,
     transform 0.45s cubic-bezier(0.22, 1, 0.36, 1);
 }
 .journey-step:hover > svg,
-.session-card:hover .icon-box {
+.sangeet-feature:hover .sangeet-feature-icon {
   background: var(--saffron);
   transform: rotate(-5deg) scale(1.08);
 }
@@ -1686,8 +1708,9 @@ footer > div:not(.footer-brand):not(.footer-bottom) a:focus-visible svg {
   .welcome-card {
     border-bottom: 1px solid var(--line);
   }
-  .sessions-grid {
-    grid-template-columns: repeat(2, 1fr);
+  .sangeet-feature {
+    gap: 30px;
+    padding: 38px;
   }
   .journey-step {
     padding: 20px 30px 35px;
@@ -1772,13 +1795,21 @@ footer > div:not(.footer-brand):not(.footer-bottom) a:focus-visible svg {
   .portrait-badge {
     right: -20px;
   }
-  .sessions-grid,
   .testimonial-grid,
   .journey-grid {
     grid-template-columns: 1fr;
   }
-  .session-card {
-    min-height: 410px;
+  .sangeet-feature {
+    grid-template-columns: 1fr;
+    padding: 30px;
+    text-align: center;
+  }
+  .sangeet-feature-icon {
+    margin: 0 auto;
+  }
+  .sangeet-highlights {
+    grid-template-columns: 1fr;
+    text-align: left;
   }
   .why {
     grid-template-columns: 1fr;
@@ -2302,7 +2333,7 @@ footer > div:not(.footer-brand):not(.footer-bottom) a:focus-visible svg {
   .faq {
     margin-bottom: 12px;
   }
-  .session-card,
+  .sangeet-feature,
   .testimonial-grid figure,
   .pricing-card {
     border-radius: 20px;
