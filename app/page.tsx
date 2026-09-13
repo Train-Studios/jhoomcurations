@@ -1,16 +1,15 @@
 'use client';
 
 import {
+  AlertCircle,
   ArrowDownRight,
   ArrowRight,
-  Baby,
   Check,
   ChevronDown,
   Heart,
   Mail,
   Menu,
   Music2,
-  PartyPopper,
   Smile,
   Sparkles,
   Star,
@@ -24,41 +23,16 @@ import {
   INSTAGRAM_URL,
   NAV_ITEMS,
   PRICING_PLANS,
-  SESSIONS,
+  SANGEET_SERVICE,
   TESTIMONIALS,
   WHATSAPP_URL,
   WHY_JHOOM,
 } from './site-data';
 
 const enquiryHref = `mailto:${CONTACT_EMAIL}?subject=Dance%20Session%20Enquiry`;
+const enquiryFormEndpoint = `https://formsubmit.co/ajax/${CONTACT_EMAIL}`;
 
-const sessionIcons = [Heart, PartyPopper, Baby, Sparkles];
-
-function buildEnquiryMailto(fields: {
-  fullName: string;
-  email: string;
-  packageChoice: string;
-  budget: string;
-  eventDate: string;
-  message: string;
-}) {
-  const subject = `Wedding Choreography Enquiry${
-    fields.packageChoice ? ` — ${fields.packageChoice}` : ''
-  }`;
-  const body = [
-    `Full name: ${fields.fullName || '-'}`,
-    `Email: ${fields.email || '-'}`,
-    `Package: ${fields.packageChoice || 'Not specified'}`,
-    `Budget: ${fields.budget || 'Not specified'}`,
-    `Event date: ${fields.eventDate || 'Not specified'}`,
-    '',
-    'About the event:',
-    fields.message || '-',
-  ].join('\n');
-  return `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent(
-    subject,
-  )}&body=${encodeURIComponent(body)}`;
-}
+type SubmitStatus = 'idle' | 'submitting' | 'success' | 'error';
 
 function WhatsAppBrandIcon() {
   return (
@@ -117,17 +91,29 @@ export default function Home() {
   const [budget, setBudget] = useState('');
   const [eventDate, setEventDate] = useState('');
   const [message, setMessage] = useState('');
+  const [submitStatus, setSubmitStatus] = useState<SubmitStatus>('idle');
 
-  const handleEnquirySubmit = (event: FormEvent<HTMLFormElement>) => {
+  const handleEnquirySubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    window.location.href = buildEnquiryMailto({
-      fullName,
-      email,
-      packageChoice,
-      budget,
-      eventDate,
-      message,
-    });
+    const form = event.currentTarget;
+    setSubmitStatus('submitting');
+    try {
+      const response = await fetch(enquiryFormEndpoint, {
+        method: 'POST',
+        headers: { Accept: 'application/json' },
+        body: new FormData(form),
+      });
+      if (!response.ok) throw new Error('Enquiry request failed');
+      setSubmitStatus('success');
+      setFullName('');
+      setEmail('');
+      setPackageChoice('');
+      setBudget('');
+      setEventDate('');
+      setMessage('');
+    } catch {
+      setSubmitStatus('error');
+    }
   };
 
   useEffect(() => {
@@ -149,7 +135,7 @@ export default function Home() {
     if (reducedMotion) return;
 
     const targets = document.querySelectorAll<HTMLElement>(
-      '.section-heading, .welcome-card, .about-visual, .about-copy, .session-card, .pricing-card, .why-intro, .benefit, .statement-inner, .journey-step, .testimonial-grid figure, .faq-intro, .faq-list, .enquiry-form, .contact > *, footer > *',
+      '.section-heading, .welcome-card, .about-visual, .about-copy, .sangeet-feature, .pricing-card, .why-intro, .benefit, .statement-inner, .journey-step, .testimonial-grid figure, .faq-intro, .faq-list, .enquiry-form, .contact > *, footer > *',
     );
 
     document.documentElement.classList.add('motion-ready');
@@ -405,46 +391,34 @@ export default function Home() {
       <section className="sessions section" id="sessions">
         <div className="section-heading split-heading">
           <div>
-            <p className="kicker">Every person moves differently</p>
+            <p className="kicker">Our one true specialty</p>
             <h2>
-              Curated <em>Around You</em>
+              Sangeet <em>Choreography</em>
             </h2>
           </div>
           <p>
-            From a first solo step to a full family celebration, every session
-            meets you at your pace.
+            We don&apos;t spread thin—we go deep on one thing: choreography
+            that brings your whole sangeet to life.
           </p>
         </div>
-        <div className="sessions-grid">
-          {SESSIONS.map((session, index) => {
-            const Icon = sessionIcons[index];
-            return (
-              <article className="session-card" key={session.title}>
-                <div className="icon-box">
-                  <Icon />
-                </div>
-                <span className="card-number">0{index + 1}</span>
-                <h3>{session.title}</h3>
-                <p>{session.description}</p>
-                {session.levels && (
-                  <div className="session-levels">
-                    {session.levels.map((level) => (
-                      <div className="session-level" key={level.label}>
-                        <span>{level.label}</span>
-                        <small>{level.detail}</small>
-                      </div>
-                    ))}
-                  </div>
-                )}
-                <a
-                  href={enquiryHref}
-                  aria-label={`Enquire about ${session.title}`}
-                >
-                  Enquire by email <ArrowRight size={17} />
-                </a>
-              </article>
-            );
-          })}
+        <div className="sangeet-feature">
+          <div className="sangeet-feature-icon">
+            <Music2 />
+          </div>
+          <div className="sangeet-feature-body">
+            <h3>{SANGEET_SERVICE.title}</h3>
+            <p>{SANGEET_SERVICE.description}</p>
+            <ul className="sangeet-highlights">
+              {SANGEET_SERVICE.highlights.map((item) => (
+                <li key={item}>
+                  <Check size={16} /> {item}
+                </li>
+              ))}
+            </ul>
+            <a className="button" href="#pricing">
+              See Sangeet Packages <ArrowRight size={17} />
+            </a>
+          </div>
         </div>
       </section>
 
@@ -668,12 +642,25 @@ export default function Home() {
           </p>
         </div>
         <form className="enquiry-form" onSubmit={handleEnquirySubmit}>
-          <div className="form-grid">
+          <input type="hidden" name="_subject" value="New Wedding Choreography Enquiry" />
+          <input type="hidden" name="_template" value="table" />
+          <input
+            type="text"
+            name="_honey"
+            className="form-honey"
+            tabIndex={-1}
+            autoComplete="off"
+            aria-hidden="true"
+          />
+          <fieldset
+            className="form-grid"
+            disabled={submitStatus === 'submitting'}
+          >
             <label className="form-field">
               <span>Full name</span>
               <input
                 type="text"
-                name="fullName"
+                name="full_name"
                 required
                 value={fullName}
                 onChange={(event) => setFullName(event.target.value)}
@@ -731,7 +718,7 @@ export default function Home() {
               <span>When is the event?</span>
               <input
                 type="date"
-                name="eventDate"
+                name="event_date"
                 required
                 value={eventDate}
                 onChange={(event) => setEventDate(event.target.value)}
@@ -740,17 +727,35 @@ export default function Home() {
             <label className="form-field form-field-wide">
               <span>Tell me about your event</span>
               <textarea
-                name="message"
+                name="about_the_event"
                 rows={4}
                 value={message}
                 onChange={(event) => setMessage(event.target.value)}
                 placeholder="Who is it for, how many people, what feeling are you going for..."
               />
             </label>
-          </div>
-          <button className="button enquiry-submit" type="submit">
-            Send Enquiry <Mail size={18} />
+          </fieldset>
+          <button
+            className="button enquiry-submit"
+            type="submit"
+            disabled={submitStatus === 'submitting'}
+          >
+            {submitStatus === 'submitting' ? 'Sending…' : 'Send Enquiry'}{' '}
+            <Mail size={18} />
           </button>
+          {submitStatus === 'success' && (
+            <p className="form-status form-status-success">
+              <Check size={16} /> Thank you! Your enquiry has been sent —
+              we&apos;ll get back to you soon.
+            </p>
+          )}
+          {submitStatus === 'error' && (
+            <p className="form-status form-status-error">
+              <AlertCircle size={16} /> Something went wrong. Please try
+              again, or email us directly at{' '}
+              <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a>.
+            </p>
+          )}
         </form>
       </section>
 

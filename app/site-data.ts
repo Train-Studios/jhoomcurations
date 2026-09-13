@@ -13,49 +13,17 @@ export const NAV_ITEMS = [
   { label: 'Contact', href: '#contact' },
 ];
 
-export const SESSIONS = [
-  {
-    title: 'Personal Dance Sessions',
-    description:
-      'One-to-one choreography and personalised dance guidance curated according to your pace, comfort, personality, goals, and preferred dance style.',
-  },
-  {
-    title: 'Wedding Choreography',
-    description:
-      'Personalised choreography for couples, families, bridesmaids, groomsmen, and wedding performances—created around celebration, relationships, memories, and confidence.',
-  },
-  {
-    title: 'Kids’ Dance Sessions',
-    description:
-      'Joyful, age-appropriate sessions that help children build rhythm, confidence, creativity, musicality, and expression.',
-    levels: [
-      {
-        label: 'Beginner',
-        detail: 'Playful foundations, rhythm, and confident first steps.',
-      },
-      {
-        label: 'Advanced',
-        detail: 'Stronger technique, musicality, and expressive choreography.',
-      },
-    ],
-  },
-  {
-    title: 'Adults’ Dance Sessions',
-    description:
-      'Comfortable, expressive sessions curated for adults at every stage of their dance journey.',
-    levels: [
-      {
-        label: 'Beginner',
-        detail: 'For first-time dancers or anyone returning after a break.',
-      },
-      {
-        label: 'Advanced',
-        detail:
-          'Challenging choreography, performance quality, musicality, and expression.',
-      },
-    ],
-  },
-];
+export const SANGEET_SERVICE = {
+  title: 'Sangeet Choreography',
+  description:
+    'We specialise in one thing and pour everything into it: full sangeet choreography for couples, families, bridesmaids, groomsmen, and every generation on the dance floor—crafted around your relationships, your music, and your celebration.',
+  highlights: [
+    'Custom song curation & professional track editing',
+    'Choreography for every age, ability & comfort level',
+    'Rehearsals scheduled around your availability',
+    'On-the-day support so nothing feels rushed',
+  ],
+};
 
 export const PRICING_PLANS = [
   {
