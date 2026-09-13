@@ -16,12 +16,14 @@ import {
   Star,
   X,
 } from 'lucide-react';
-import { useEffect, useState } from 'react';
+import { useEffect, useState, type FormEvent } from 'react';
 import {
+  BUDGET_RANGES,
   CONTACT_EMAIL,
   FAQS,
   INSTAGRAM_URL,
   NAV_ITEMS,
+  PRICING_PLANS,
   SESSIONS,
   TESTIMONIALS,
   WHATSAPP_URL,
@@ -31,6 +33,32 @@ import {
 const enquiryHref = `mailto:${CONTACT_EMAIL}?subject=Dance%20Session%20Enquiry`;
 
 const sessionIcons = [Heart, PartyPopper, Baby, Sparkles];
+
+function buildEnquiryMailto(fields: {
+  fullName: string;
+  email: string;
+  packageChoice: string;
+  budget: string;
+  eventDate: string;
+  message: string;
+}) {
+  const subject = `Wedding Choreography Enquiry${
+    fields.packageChoice ? ` — ${fields.packageChoice}` : ''
+  }`;
+  const body = [
+    `Full name: ${fields.fullName || '-'}`,
+    `Email: ${fields.email || '-'}`,
+    `Package: ${fields.packageChoice || 'Not specified'}`,
+    `Budget: ${fields.budget || 'Not specified'}`,
+    `Event date: ${fields.eventDate || 'Not specified'}`,
+    '',
+    'About the event:',
+    fields.message || '-',
+  ].join('\n');
+  return `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent(
+    subject,
+  )}&body=${encodeURIComponent(body)}`;
+}
 
 function WhatsAppBrandIcon() {
   return (
@@ -83,6 +111,24 @@ function BrandLogo() {
 
 export default function Home() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [fullName, setFullName] = useState('');
+  const [email, setEmail] = useState('');
+  const [packageChoice, setPackageChoice] = useState('');
+  const [budget, setBudget] = useState('');
+  const [eventDate, setEventDate] = useState('');
+  const [message, setMessage] = useState('');
+
+  const handleEnquirySubmit = (event: FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    window.location.href = buildEnquiryMailto({
+      fullName,
+      email,
+      packageChoice,
+      budget,
+      eventDate,
+      message,
+    });
+  };
 
   useEffect(() => {
     document.body.style.overflow = menuOpen ? 'hidden' : '';
@@ -103,7 +149,7 @@ export default function Home() {
     if (reducedMotion) return;
 
     const targets = document.querySelectorAll<HTMLElement>(
-      '.section-heading, .welcome-card, .about-visual, .about-copy, .session-card, .why-intro, .benefit, .statement-inner, .journey-step, .testimonial-grid figure, .faq-intro, .faq-list, .contact > *, footer > *',
+      '.section-heading, .welcome-card, .about-visual, .about-copy, .session-card, .pricing-card, .why-intro, .benefit, .statement-inner, .journey-step, .testimonial-grid figure, .faq-intro, .faq-list, .enquiry-form, .contact > *, footer > *',
     );
 
     document.documentElement.classList.add('motion-ready');
@@ -402,6 +448,63 @@ export default function Home() {
         </div>
       </section>
 
+      <section className="pricing section" id="pricing">
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
+          className="pricing-watermark"
+          src="/logo-outline.png"
+          alt=""
+          aria-hidden="true"
+        />
+        <div className="section-heading centered">
+          <p className="kicker kicker-light">Wedding Choreography Packages</p>
+          <h2>
+            Choose Your <em>Celebration</em>
+          </h2>
+          <p className="pricing-intro">
+            Every wedding tells a different story. Pick the package that
+            matches the scale of yours—each one is fully personalised either
+            way.
+          </p>
+        </div>
+        <div className="pricing-grid">
+          {PRICING_PLANS.map((plan) => (
+            <article
+              className={`pricing-card${
+                plan.featured ? ' pricing-card-featured' : ''
+              }`}
+              key={plan.id}
+            >
+              {plan.featured && (
+                <span className="pricing-glow" aria-hidden="true" />
+              )}
+              <span className="pricing-tag">{plan.tag}</span>
+              <h3>{plan.title}</h3>
+              <p className="pricing-desc">{plan.description}</p>
+              <p className="pricing-count">
+                <strong>{plan.medleys}</strong> custom medleys
+              </p>
+              <ul className="pricing-features">
+                {plan.features.map((feature) => (
+                  <li key={feature}>
+                    <Check size={15} /> {feature}
+                  </li>
+                ))}
+              </ul>
+              <a
+                className={`button pricing-cta${
+                  plan.featured ? '' : ' pricing-cta-outline'
+                }`}
+                href="#enquire"
+                onClick={() => setPackageChoice(plan.title)}
+              >
+                Enquire for {plan.title} <ArrowRight size={17} />
+              </a>
+            </article>
+          ))}
+        </div>
+      </section>
+
       <section className="why section" id="why-jhoom">
         <div className="why-intro">
           <p className="kicker kicker-light">Space to be yourself</p>
@@ -551,6 +654,104 @@ export default function Home() {
             </details>
           ))}
         </div>
+      </section>
+
+      <section className="enquire section" id="enquire">
+        <div className="section-heading centered">
+          <p className="kicker">Let&apos;s plan it together</p>
+          <h2>
+            Start Your <em>Enquiry</em>
+          </h2>
+          <p className="enquire-intro">
+            Share a few details and we&apos;ll get back to you with a plan
+            curated around your celebration.
+          </p>
+        </div>
+        <form className="enquiry-form" onSubmit={handleEnquirySubmit}>
+          <div className="form-grid">
+            <label className="form-field">
+              <span>Full name</span>
+              <input
+                type="text"
+                name="fullName"
+                required
+                value={fullName}
+                onChange={(event) => setFullName(event.target.value)}
+                placeholder="Your name"
+              />
+            </label>
+            <label className="form-field">
+              <span>Email</span>
+              <input
+                type="email"
+                name="email"
+                required
+                value={email}
+                onChange={(event) => setEmail(event.target.value)}
+                placeholder="you@example.com"
+              />
+            </label>
+            <label className="form-field">
+              <span>Package</span>
+              <select
+                name="package"
+                required
+                value={packageChoice}
+                onChange={(event) => setPackageChoice(event.target.value)}
+              >
+                <option value="" disabled>
+                  Select a package
+                </option>
+                {PRICING_PLANS.map((plan) => (
+                  <option key={plan.id} value={plan.title}>
+                    {plan.title} — {plan.medleys} medleys
+                  </option>
+                ))}
+                <option value="Not sure yet">Not sure yet</option>
+              </select>
+            </label>
+            <label className="form-field">
+              <span>Budget</span>
+              <select
+                name="budget"
+                value={budget}
+                onChange={(event) => setBudget(event.target.value)}
+              >
+                <option value="" disabled>
+                  Select a range
+                </option>
+                {BUDGET_RANGES.map((range) => (
+                  <option key={range} value={range}>
+                    {range}
+                  </option>
+                ))}
+              </select>
+            </label>
+            <label className="form-field form-field-wide">
+              <span>When is the event?</span>
+              <input
+                type="date"
+                name="eventDate"
+                required
+                value={eventDate}
+                onChange={(event) => setEventDate(event.target.value)}
+              />
+            </label>
+            <label className="form-field form-field-wide">
+              <span>Tell me about your event</span>
+              <textarea
+                name="message"
+                rows={4}
+                value={message}
+                onChange={(event) => setMessage(event.target.value)}
+                placeholder="Who is it for, how many people, what feeling are you going for..."
+              />
+            </label>
+          </div>
+          <button className="button enquiry-submit" type="submit">
+            Send Enquiry <Mail size={18} />
+          </button>
+        </form>
       </section>
 
       <section className="contact section" id="contact">

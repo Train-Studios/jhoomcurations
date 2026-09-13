@@ -8,6 +8,7 @@ export const NAV_ITEMS = [
   { label: 'Home', href: '#home' },
   { label: 'About', href: '#about' },
   { label: 'Sessions', href: '#sessions' },
+  { label: 'Pricing', href: '#pricing' },
   { label: 'Why Jhoom', href: '#why-jhoom' },
   { label: 'Contact', href: '#contact' },
 ];
@@ -54,6 +55,68 @@ export const SESSIONS = [
       },
     ],
   },
+];
+
+export const PRICING_PLANS = [
+  {
+    id: 'utsav',
+    tag: '01 / Intimate',
+    title: 'Utsav',
+    description: 'For intimate celebrations filled with joy.',
+    medleys: 10,
+    featured: false,
+    features: [
+      'Song curation included',
+      'Standard track editing',
+      'Clean cuts, fades & volume balancing',
+      'Extra practice sessions as an add-on',
+      'Practice recap videos included',
+      'Standard rehearsal schedule',
+      'Main-day support as an add-on',
+    ],
+  },
+  {
+    id: 'vaibhav',
+    tag: 'Most popular',
+    title: 'Vaibhav',
+    description: 'For a complete and beautifully curated family sangeet.',
+    medleys: 15,
+    featured: true,
+    features: [
+      'Song curation included',
+      'Advanced track editing',
+      'Beat matching, transitions & selected SFX',
+      '3 extra practice sessions included',
+      'Practice recap videos included',
+      'Detailed rehearsal schedule',
+      'Main-day support included',
+    ],
+  },
+  {
+    id: 'rajsi',
+    tag: '03 / Signature',
+    title: 'Rajsi',
+    description: 'For an elaborate celebration on a truly grand scale.',
+    medleys: 20,
+    featured: false,
+    features: [
+      'Song curation included',
+      'Cinematic advanced track editing',
+      'Advanced sound design & performance cues',
+      '5 extra practice sessions included',
+      'Practice recap videos included',
+      'Priority rehearsal management',
+      'Main-day support included',
+    ],
+  },
+];
+
+export const BUDGET_RANGES = [
+  'Under ₹25,000',
+  '₹25,000 – ₹50,000',
+  '₹50,000 – ₹1,00,000',
+  'Above ₹1,00,000',
+  'Not sure yet',
 ];
 
 export const WHY_JHOOM = [
