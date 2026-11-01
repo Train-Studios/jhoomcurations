@@ -15,7 +15,7 @@ import {
   Star,
   X,
 } from 'lucide-react';
-import { useEffect, useState, type FormEvent } from 'react';
+import { useEffect, useState, useSyncExternalStore, type FormEvent } from 'react';
 import {
   BUDGET_RANGES,
   CONTACT_EMAIL,
@@ -85,6 +85,8 @@ function BrandLogo() {
 
 export default function Home() {
   const [menuOpen, setMenuOpen] = useState(false);
+  // Form fields render after mount so autofill extensions that inject into inputs can't break hydration.
+  const mounted = useSyncExternalStore(() => () => {}, () => true, () => false);
   const [fullName, setFullName] = useState('');
   const [email, setEmail] = useState('');
   const [packageChoice, setPackageChoice] = useState('');
@@ -289,7 +291,28 @@ export default function Home() {
             ))}
           </ul>
         </div>
-        <div className="hero-art" aria-label="Jhoom Curations logo" role="img">
+        <div className="hero-art">
+          <video
+            className="hero-art-video"
+            src="/hero.mp4"
+            poster="/hero-poster.jpg"
+            autoPlay
+            loop
+            muted
+            playsInline
+            aria-label="Jhoom Curations showreel"
+          />
+          <video
+            className="hero-art-video hero-art-video-mobile"
+            src="/hero-mobile.mp4"
+            poster="/hero-mobile-poster.jpg"
+            autoPlay
+            loop
+            muted
+            playsInline
+            aria-hidden="true"
+          />
+          {/* Previous hero logo, kept for future use:
           <img
             className="hero-art-logo-shadow"
             src="/logo-outline.png"
@@ -301,6 +324,7 @@ export default function Home() {
             src="/logo-outline.png"
             alt="Jhoom Curations logo"
           />
+          */}
         </div>
       </section>
 
@@ -642,6 +666,7 @@ export default function Home() {
           </p>
         </div>
         <form className="enquiry-form" onSubmit={handleEnquirySubmit}>
+          {mounted && (<>
           <input type="hidden" name="_subject" value="New Wedding Choreography Enquiry" />
           <input type="hidden" name="_template" value="table" />
           <input
@@ -756,6 +781,7 @@ export default function Home() {
               <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a>.
             </p>
           )}
+          </>)}
         </form>
       </section>
 

@@ -366,6 +366,17 @@ h1 span {
   position: relative;
   transform: none;
 }
+.hero-art-video {
+  border-radius: 16px;
+  aspect-ratio: 4 / 5;
+  height: auto;
+  max-width: 520px;
+  object-fit: cover;
+  width: 100%;
+}
+.hero-art-video-mobile {
+  display: none;
+}
 .hero-art-logo,
 .hero-art-logo-shadow {
   grid-area: 1 / 1;
@@ -2141,9 +2152,20 @@ footer > div:not(.footer-brand):not(.footer-bottom) a:focus-visible svg {
     max-width: 260px;
   }
   .hero-art {
+    background: none;
+    min-height: 0;
+    padding: 0;
+  }
+  .hero-art-video {
     display: none;
   }
+  .hero-art-video.hero-art-video-mobile {
+    aspect-ratio: 9 / 16;
+    display: block;
+    max-width: 320px;
+  }
   .hero-art::after {
+    display: none;
     border: 1px solid rgba(227, 165, 88, 0.45);
     border-radius: 24px;
     inset: 10px;
